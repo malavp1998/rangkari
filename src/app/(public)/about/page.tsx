@@ -8,7 +8,7 @@ export default function AboutPage() {
           About
         </p>
         <h1 className="mt-2 font-[family-name:var(--font-cormorant)] text-5xl font-light leading-tight">
-          Kuldeep Goacher
+          Kuldeep Gocher
         </h1>
       </div>
 
@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="relative aspect-[3/4] max-w-xs overflow-hidden bg-[#1A1A1A]/5">
           <Image
             src="/kuldeep.jpg"
-            alt="Kuldeep Goacher"
+            alt="Kuldeep Gocher"
             fill
             sizes="(min-width: 1024px) 320px, 100vw"
             className="object-cover"
@@ -28,7 +28,7 @@ export default function AboutPage() {
         {/* Bio */}
         <div className="space-y-6">
           <p className="font-[family-name:var(--font-inter)] text-base leading-relaxed text-[#1A1A1A]/80">
-            Kuldeep Goacher is a painter, traveller, and image-maker who lives and works in India.
+            Kuldeep Gocher is a painter, traveller, and image-maker who lives and works in India.
             Trained in Fashion Design in Udaipur — a city where every wall, façade, and fabric
             seems to carry its own quiet history — his eye was shaped early by texture, drape,
             light, and the slow poetry of how things are put together. That same eye, years later,
