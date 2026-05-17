@@ -157,7 +157,7 @@ export default function PaintingForm({ painting }: PaintingFormProps) {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
               <Label htmlFor="price">Price (₹) *</Label>
               <Input id="price" type="number" min={1} value={price} onChange={(e) => setPrice(e.target.value)} placeholder="e.g. 15000" required />
@@ -168,7 +168,7 @@ export default function PaintingForm({ painting }: PaintingFormProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
               <Label htmlFor="dimensions">Dimensions</Label>
               <Input id="dimensions" value={dimensions} onChange={(e) => setDimensions(e.target.value)} placeholder="24 x 36 inches" />
@@ -179,7 +179,7 @@ export default function PaintingForm({ painting }: PaintingFormProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
               <Label>Status</Label>
               <Select value={status} onValueChange={(v) => setStatus(v as PaintingStatus)}>
@@ -232,11 +232,11 @@ export default function PaintingForm({ painting }: PaintingFormProps) {
       </div>
 
       {/* Actions */}
-      <div className="flex gap-3 border-t border-black/5 pt-6">
-        <Button type="submit" disabled={isPending} className="bg-[#1A1A1A] text-white hover:bg-[#1A1A1A]/80">
+      <div className="flex flex-col gap-3 border-t border-black/5 pt-6 sm:flex-row">
+        <Button type="submit" disabled={isPending} className="w-full bg-[#1A1A1A] text-white hover:bg-[#1A1A1A]/80 sm:w-auto">
           {isPending ? 'Saving…' : painting ? 'Update Painting' : 'Upload Painting'}
         </Button>
-        <Button type="button" variant="outline" onClick={() => router.back()}>
+        <Button type="button" variant="outline" onClick={() => router.back()} className="w-full sm:w-auto">
           Cancel
         </Button>
       </div>

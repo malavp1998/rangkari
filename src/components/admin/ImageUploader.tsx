@@ -83,12 +83,13 @@ export default function ImageUploader({ images, onChange }: ImageUploaderProps) 
 
       {/* Previews */}
       {images.length > 0 && (
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3">
           {images.map((img) => (
             <div key={img.id} className="group relative aspect-square overflow-hidden rounded-lg border border-black/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={img.previewUrl} alt="" className="h-full w-full object-cover" />
 
-              {/* Primary star */}
+              {/* Primary star — always visible on mobile, hover on desktop */}
               <button
                 type="button"
                 onClick={() => setPrimary(img.id)}
@@ -97,17 +98,18 @@ export default function ImageUploader({ images, onChange }: ImageUploaderProps) 
                   'absolute left-1.5 top-1.5 rounded-full p-1 transition-colors',
                   img.isPrimary
                     ? 'bg-amber-400 text-white'
-                    : 'bg-black/40 text-white/70 opacity-0 group-hover:opacity-100'
+                    : 'bg-black/50 text-white md:bg-black/40 md:text-white/70 md:opacity-0 md:group-hover:opacity-100'
                 )}
               >
                 <Star className="h-3 w-3" fill={img.isPrimary ? 'currentColor' : 'none'} />
               </button>
 
-              {/* Remove */}
+              {/* Remove — always visible on mobile, hover on desktop */}
               <button
                 type="button"
                 onClick={() => remove(img.id)}
-                className="absolute right-1.5 top-1.5 rounded-full bg-black/40 p-1 text-white opacity-0 transition-opacity group-hover:opacity-100"
+                className="absolute right-1.5 top-1.5 rounded-full bg-black/50 p-1 text-white transition-opacity md:bg-black/40 md:opacity-0 md:group-hover:opacity-100"
+                aria-label="Remove image"
               >
                 <X className="h-3 w-3" />
               </button>

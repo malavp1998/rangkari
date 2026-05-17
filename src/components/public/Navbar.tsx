@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X, Palette } from 'lucide-react'
+import { Menu, X, Palette, Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const links = [
@@ -43,6 +43,19 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+          <span className="h-4 w-px bg-[#1A1A1A]/15" />
+          <Link
+            href="/admin/login"
+            className={cn(
+              'flex items-center gap-1.5 font-[family-name:var(--font-inter)] text-sm tracking-wide transition-colors',
+              pathname.startsWith('/admin')
+                ? 'text-[#1A1A1A]'
+                : 'text-[#1A1A1A]/40 hover:text-[#1A1A1A]'
+            )}
+          >
+            <Lock className="h-3 w-3" />
+            Admin
+          </Link>
         </nav>
 
         {/* Mobile toggle */}
@@ -72,6 +85,18 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
+            <div className="my-1 h-px bg-[#1A1A1A]/10" />
+            <Link
+              href="/admin/login"
+              onClick={() => setOpen(false)}
+              className={cn(
+                'flex items-center gap-1.5 font-[family-name:var(--font-inter)] text-sm tracking-wide',
+                pathname.startsWith('/admin') ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]/40'
+              )}
+            >
+              <Lock className="h-3 w-3" />
+              Admin
+            </Link>
           </nav>
         </div>
       )}

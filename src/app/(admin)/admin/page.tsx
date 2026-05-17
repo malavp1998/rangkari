@@ -54,42 +54,42 @@ export default async function AdminDashboardPage() {
   ]
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <div>
-        <h1 className="font-[family-name:var(--font-cormorant)] text-4xl font-semibold">Dashboard</h1>
+        <h1 className="font-[family-name:var(--font-cormorant)] text-3xl font-semibold sm:text-4xl">Dashboard</h1>
         <p className="mt-1 text-sm text-[#1A1A1A]/50">Welcome back to Rangkari admin.</p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {stats.map(({ label, value, icon: Icon, color }) => (
-          <div key={label} className="rounded-xl border border-black/5 bg-white p-5 shadow-sm">
+          <div key={label} className="rounded-xl border border-black/5 bg-white p-4 shadow-sm sm:p-5">
             <div className="flex items-center justify-between">
-              <p className="text-sm text-[#1A1A1A]/50">{label}</p>
+              <p className="text-xs text-[#1A1A1A]/50 sm:text-sm">{label}</p>
               <Icon className={`h-4 w-4 ${color}`} />
             </div>
-            <p className="mt-2 text-3xl font-semibold tracking-tight">{value}</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">{value}</p>
           </div>
         ))}
       </div>
 
       {/* Recent Orders */}
       <div className="rounded-xl border border-black/5 bg-white shadow-sm">
-        <div className="flex items-center justify-between border-b border-black/5 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-black/5 px-4 py-4 sm:px-6">
           <h2 className="font-semibold">Recent Orders</h2>
           <Link href="/admin/orders" className="text-sm text-[#1A1A1A]/50 hover:text-[#1A1A1A]">
             View all →
           </Link>
         </div>
         {recentOrders.length === 0 ? (
-          <p className="px-6 py-8 text-center text-sm text-[#1A1A1A]/40">No orders yet.</p>
+          <p className="px-4 py-8 text-center text-sm text-[#1A1A1A]/40 sm:px-6">No orders yet.</p>
         ) : (
           <ul className="divide-y divide-black/5">
             {recentOrders.map((order) => (
-              <li key={order.order_number} className="flex items-center justify-between px-6 py-4">
-                <div>
-                  <p className="text-sm font-medium">{order.order_number}</p>
-                  <p className="text-xs text-[#1A1A1A]/50">{order.customer_name}</p>
+              <li key={order.order_number} className="flex flex-col gap-2 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium">{order.order_number}</p>
+                  <p className="truncate text-xs text-[#1A1A1A]/50">{order.customer_name}</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-medium">
@@ -106,16 +106,16 @@ export default async function AdminDashboardPage() {
       </div>
 
       {/* Quick actions */}
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <Link
           href="/admin/paintings/new"
-          className="rounded-lg bg-[#1A1A1A] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1A1A1A]/80"
+          className="rounded-lg bg-[#1A1A1A] px-5 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-[#1A1A1A]/80"
         >
           + Upload Painting
         </Link>
         <Link
           href="/admin/paintings"
-          className="rounded-lg border border-black/10 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-black/5"
+          className="rounded-lg border border-black/10 px-5 py-2.5 text-center text-sm font-medium transition-colors hover:bg-black/5"
         >
           Manage Paintings
         </Link>
