@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-20">
@@ -11,8 +13,17 @@ export default function AboutPage() {
       </div>
 
       <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_2fr]">
-        {/* Photo placeholder */}
-        <div className="aspect-[3/4] max-w-xs bg-[#1A1A1A]/5" />
+        {/* Artist photo */}
+        <div className="relative aspect-[3/4] max-w-xs overflow-hidden bg-[#1A1A1A]/5">
+          <Image
+            src="/kuldeep.jpg"
+            alt="Kuldeep Goacher"
+            fill
+            sizes="(min-width: 1024px) 320px, 100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
 
         {/* Bio */}
         <div className="space-y-6">
