@@ -16,10 +16,10 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Art Gallery',
-    template: '%s | Art Gallery',
+    default: 'Rangkari',
+    template: '%s | Rangkari',
   },
-  description: 'Original paintings by the artist — own a one-of-a-kind piece.',
+  description: 'Book professional painting services online — Rangkari.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
